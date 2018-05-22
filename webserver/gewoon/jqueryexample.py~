@@ -18,11 +18,11 @@ def add_numbers():
     ax1 = str(ax1)
     a = a+1#x#request.args.get('a', 0, type=int)
     b = 6#request.args.get('b', 0, type=int)
-    return jsonify(result=ax1) #ax1)
+    return jsonify(result=str(a))#x1) #ax1)
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(host='192.168.0.115')
+    app.run(host='192.168.0.118')

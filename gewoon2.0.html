@@ -1,0 +1,182 @@
+<style>
+div.halves{  
+  background: #00A885;
+  color: #005666;
+  padding: .5em;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-weight: bold;
+  transition: height 1s, width 1s, padding 1s, visibility 1s, opacity 0.5s ease-out;
+}
+h1.headers{
+ border-bottom-style:solid;
+  border-top-style:solid;border-color:#005641;
+  border-width:3px;
+  margin-bottom:0;
+  margin-top:0;
+  color:white;
+  text-align:center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:2.8em;
+  background-color:black;
+}
+</style>
+<!-- kleuren: #005641 en #005666 en #00A885-->
+<!-- achtergrond lichter groen maken en tekst dan zwart of mengeling donkergroen-zwart en balken headers
+donkergroen maken en bij hover nog donkerdergroen of zwart-->
+<body style="font-size:100%;background-color:#00A885;margin:0;">
+
+<h1 class="headers" id="h1" onmouseover="mousehover1()" onmouseout="mouseout1()" >Inertial Measurement Unit values</h1>
+	<!--style="border-bottom-style:solid;border-top-style:solid;border-color:#005641;border-width:3px;margin-bottom:0;margin-top:0;color:white;text-align:center;font-family: Arial, Helvetica, sans-serif;font-size:2.8em;background-color:#111111;"-->
+<!-- onclick="hideFirst()"-->
+<div class="halves"	id="firstHalf">
+
+
+heey
+default
+</br>
+keygen</br>
+fe
+
+	<span style="margin-left:20%;position: relative;">
+		<p style="font-size:1.8em;color:white;font-familu: Arial, Helvetica, sans-serif;display:inline;">Accelerometer</p>
+		<span style="position: absolute; top: 100%; left: 0px;">
+			<p id="ax1" style="display:inline">Acceleration x: g</p></br>
+			<p id="ax1" style="display:inline">Acceleration y: g</p></br>
+			<p id="ax1" style="display:inline">Acceleration z: g</p>
+		</span>
+	</span>
+	
+	<span style="margin-left:20%;position: relative;">
+		<p style="font-size:1.8em;color:white;font-familu: Arial, Helvetica, sans-serif;display:inline;">Gyroscope</p>
+		<span style="position: absolute; top: 100%; left: 0px;">
+			<p id="ax1" style="display:inline">Rotation x: deg/s</p></br>
+			<p id="ax1" style="display:inline">Rotation y: deg/s</p></br>
+			<p id="ax1" style="display:inline">Rotation z: deg/s</p>
+		</span>
+	</span>
+	</br>dan</br>d</br>d</br>d</br>
+</div>
+
+<h1 class="headers" id="h2" onmouseover="mousehover2()" onmouseout="mouseout2()" onclick="hideSecond()"> Files with suit data </h2>
+<!--style="border-bottom-style:solid;border-top-style:solid;border-color:#005641;border-width:3px;margin-top:0;color:white;text-align:center;font-family: Arial, Helvetica, sans-serif;font-size:2.8em;background-color:#111111;"-->
+<div class="halves" id="secondHalf">
+<p style="font-size:3em;text-align:center;" id="downloadp" onmouseover="mousehoverdownload()" onmouseout="mouseoutdownload()">hier gewoon doen da hij alle files download
+ da in map zitten van "datafiles" ofzoiets</p>
+	<!--<div class="base">
+	<div class="vert-align" style="padding-left:50%">
+		Content Here
+	</div>
+	</div>
+	yuuuu-->
+	
+	
+<div>
+
+<script>
+var firstHalf = document.getElementById("firstHalf");
+var h1 = document.getElementById("h1");
+var secondHalf = document.getElementById("secondHalf");
+var h2 = document.getElementById("h2");
+var pdownload = document.getElementById("downloadp");
+function mousehover2(){
+	  h2.style.backgroundColor="#005666";
+	  h2.style.cursor="pointer";
+}
+function mouseout2(){
+	  h2.style.backgroundColor="black";
+}
+function mousehover1(){
+	  h1.style.backgroundColor="#005666";
+	  h1.style.cursor="pointer";
+}
+function mouseout1(){
+	  h1.style.backgroundColor="black";
+}
+function mousehoverdownload(){
+	  pdownload.style.color="white";
+	  pdownload.style.cursor="pointer";
+}
+function mouseoutdownload(){
+	  pdownload.style.color="black";
+}
+
+
+
+var heightFirst = firstHalf.clientHeight;
+var heightSecond = secondHalf.clientHeight+50;
+var width = firstHalf.clientWidth;
+console.log(width + "x" + heightFirst);
+// initialize them (within hint.style)
+firstHalf.style.height = heightFirst + "px";
+firstHalf.style.width = width + "px";
+secondHalf.style.height = heightSecond + "px";
+secondHalf.style.width = width + "px";
+h1.addEventListener("click", function(){
+  if(firstHalf.style.visibility == "hidden"){
+    firstHalf.style.visibility = "visible";
+    firstHalf.style.opacity = "1";
+    firstHalf.style.height = heightFirst + "px";
+    firstHalf.style.width = width + "px";
+    firstHalf.style.padding = ".5em";
+	h1.style.borderBottom="solid #005641 3px";
+  }
+  else{
+    firstHalf.style.visibility = 'hidden';
+    firstHalf.style.opacity = '0';
+    firstHalf.style.height = '0';
+    firstHalf.style.width = '0';
+    firstHalf.style.padding = '0';
+	h1.style.borderBottom='0';
+  }
+});
+
+h2.addEventListener("click", function(){
+  if(secondHalf.style.visibility == "hidden"){
+    secondHalf.style.visibility = "visible";
+    secondHalf.style.opacity = "1";
+    secondHalf.style.height = heightSecond + "px";
+    secondHalf.style.width = width + "px";
+    secondHalf.style.padding = ".5em";
+	//h.style.borderBottom="solid #005641 3px";
+  }
+  else{
+    secondHalf.style.visibility = 'hidden';
+    secondHalf.style.opacity = '0';
+    secondHalf.style.height = '0';
+    secondHalf.style.width = '0';
+    secondHalf.style.padding = '0';
+	//h1.style.borderBottom='0';
+  }
+
+});
+
+
+/*
+function hideFirst() {
+    if (firstHalf.style.display === "none") {
+        firstHalf.style.display = "inline";
+		h1.style.borderBottom= "solid #005641 3px";
+    } else {
+        firstHalf.style.display = "none";
+		h1.style.borderBottom= "none";
+    }
+}
+function hideSecond() {
+    if (secondHalf.style.display === "none") {
+        secondHalf.style.display = "inline";
+    } else {
+        secondHalf.style.display = "none";
+    }
+}*/
+
+</script>
+
+
+<!--<input type="text" size="5" name="a"> + -->
+<!--<input type="text" size="5" name="b"> = -->
+<!--<span id="result">?</span>-->
+<!--<p><a href=# id="calculate">calculate server side</a> -->
+</body>
+
+

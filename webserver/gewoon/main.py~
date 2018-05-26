@@ -2,6 +2,7 @@
 # https://github.com/pallets/flask/tree/0.12.4/examples/jqueryexample
 from flask import Flask, jsonify, render_template, request
 import mpu9250
+import os
 app = Flask(__name__)
 
 a = 4
@@ -13,12 +14,16 @@ except:
 
 @app.route('/_showValues')
 def showValues():
-    global a
+    #global a
+    #a = a+1#x#request.args.get('a', 0, type=int)
+
     ax, ay, az = mp1.getAccel()
     gx, gy, gz = mp1.getGyro()
-    a = a+1#x#request.args.get('a', 0, type=int)
-    b = 6#request.args.get('b', 0, type=int)
-    return jsonify(result=str(ax)+"n"+str(ay)+"n"+str(az)+"n"+str(gx)+"n"+str(gx)+"n"+str(gx))
+    datafiles = os.listdir("/home/debian/Desktop/bbbw/webserver/gewoon/datafiles")
+    allfiles = ""
+    for i in range(0,len(datafiles)-1):
+        allfiles=allfiles + ","+datafiles[i]
+    return jsonify(result=str(ax)+"!"+str(ay)+"!"+str(az)+"!"+str(gx)+"!"+str(gy)+"!"+str(gz)+"?"+allfiles)
 
 @app.route('/')
 def index():

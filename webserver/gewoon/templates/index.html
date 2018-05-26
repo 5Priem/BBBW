@@ -41,13 +41,22 @@ h1.headers{
 			//b: $('input[name="b"]').val()
 			//},
 			function(data) {
-				var splitted = data.result.split("n");
+				var splitted = data.result.split("!");
+				var splittedFiles = data.result.split("?");
+				var splittedFiles2 = splittedFiles[1].split(",");
+				file1 = splittedFiles2[1];
+				file2 = splittedFiles2[2];
+				$('#d1').text(file1);
+				$('#d2').text(file2);
+
+				console.log(splittedFiles[1]);
 				ax=splitted[0];
 				ay=splitted[1];
 				az=splitted[2];
 				gx=splitted[3];
 				gy=splitted[4];
 				gz=splitted[5];
+
 				$('#ax').text("Acceleration x: "+ax.substring(0,8)+" g");
 				$('#ay').text("Acceleration y: "+ay.substring(0,8)+" g");
 				$('#az').text("Acceleration z: "+az.substring(0,8)+" g");
@@ -118,6 +127,8 @@ fe
 <div class="halves" id="secondHalf">
 <p style="font-size:3em;text-align:center;" id="downloadp" onmouseover="mousehoverdownload()" onmouseout="mouseoutdownload()">hier gewoon doen da hij alle files download
  da in map zitten van "datafiles" ofzoiets</p>
+<p id="d1"> download 1</p>
+<p id="d2"> download 2</p>
 	
 	
 <div>

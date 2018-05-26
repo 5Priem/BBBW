@@ -11,14 +11,14 @@ except:
         print("IMU's : Failed to import or execute mpu9250 library, IMU is probably not connected rightly")
 
 
-@app.route('/_add_numbers')
-def add_numbers():
+@app.route('/_showValues')
+def showValues():
     global a
-    ax1, ay1, az1 = mp1.getAccel()
-    ax1 = str(ax1)
+    ax, ay, az = mp1.getAccel()
+    gx, gy, gz = mp1.getGyro()
     a = a+1#x#request.args.get('a', 0, type=int)
     b = 6#request.args.get('b', 0, type=int)
-    return jsonify(result=str(a))#x1) #ax1)
+    return jsonify(result=str(ax)+"n"+str(ay)+"n"+str(az)+"n"+str(gx)+"n"+str(gy)+"n"+str(gz))
 
 @app.route('/')
 def index():

@@ -42,14 +42,6 @@ h1.headers{
 			//},
 			function(data) {
 				var splitted = data.result.split("!");
-				var splittedFiles = data.result.split("?");
-				var splittedFiles2 = splittedFiles[1].split(",");
-				file1 = splittedFiles2[1];
-				file2 = splittedFiles2[2];
-				$('#d1').text(file1);
-				$('#d2').text(file2);
-
-				console.log(splittedFiles[1]);
 				ax=splitted[0];
 				ay=splitted[1];
 				az=splitted[2];
@@ -80,6 +72,111 @@ h1.headers{
 	
 	$('input[name=a]').focus();
 });
+
+$(function() {
+var submit_form2 = 
+	function(e) 
+	{
+		$.getJSON($SCRIPT_ROOT + '/_showFiles', 
+		//{
+		//a: $('input[name="a"]').val(),
+		//b: $('input[name="b"]').val()
+		//},
+		function(allFiles) {
+			var files = allFiles.result2;
+			//var splittedFiles = data.result.split("?");
+			//var splittedFiles2 = splittedFiles[1].split(",");
+			//file1 = splittedFiles2[1];
+			//file2 = splittedFiles2[2];
+			//$('#d1').text(file1);
+			//$('#d2').text(file2);
+
+			//console.log(splittedFiles[1]);
+			//alert(files);
+			var splittedFiles = files.split(",");
+			var numberOfFiles = splittedFiles.length-1;
+			//var filesDir = "/home/debian/Desktop/bbbw/webserver/gewoon/datafiles/";
+			//alert(numberOfFiles.toString());
+			if(numberOfFiles==1)
+			{
+				$("#d1").visible();
+				$("#d2").invisible();
+				$("#d3").invisible();
+				$("#d4").invisible();
+				$("#d5").invisible();
+			}
+			else if(numberOfFiles==2)
+			{
+				$("#d1").visible();
+				$("#d2").visible();
+				$("#d3").invisible();
+				$("#d4").invisible();
+				$("#d5").invisible();
+			}
+			else if(numberOfFiles==3)
+			{
+				$("#d1").visible();
+				$("#d1").text(splittedFiles[1]);
+				//$("#ad1").attr("href", filesDir+splittedFiles[numberOfFiles]);
+				$("#d2").visible();
+				$("#d2").text(splittedFiles[2]);
+				$("#d3").visible();
+				$("#d3").text(splittedFiles[3]);
+				$("#d4").invisible();
+				$("#d5").invisible();
+			}
+			else if(numberOfFiles==4)
+			{
+				$("#d1").visible();
+				$("#d2").visible();
+				$("#d3").visible();
+				$("#d4").visible();
+				$("#d5").invisible();
+			}
+			else if(numberOfFiles==5)
+			{
+				$("#d1").visible();
+				$("#d2").visible();
+				$("#d3").visible();
+				$("#d4").visible();
+				$("#d5").visible();
+			}
+			else if(numberOfFiles>6)
+			{
+				$("#d1").visible();
+				$("#d2").visible();
+				$("#d3").visible();
+				$("#d4").visible();
+				$("#d5").visible();
+			}
+			else
+			{
+				$("#d1").invisible();
+				$("#d2").invisible();
+				$("#d3").invisible();
+				$("#d4").invisible();
+				$("#d5").invisible();
+			}
+
+		});
+	//alert("test");
+	};
+	$('#h2').bind('click', submit_form2);
+	$(document).ready(submit_form2);
+});
+
+(function($) {
+$.fn.invisible = function() {
+          return this.each(function() {
+              $(this).css("visibility", "hidden");
+	        });
+        };
+       $.fn.visible = function() {
+        return this.each(function() {
+          $(this).css("visibility", "visible");
+	            });
+    };
+}(jQuery));
 
 
   </script>
@@ -127,9 +224,16 @@ fe
 <div class="halves" id="secondHalf">
 <p style="font-size:3em;text-align:center;" id="downloadp" onmouseover="mousehoverdownload()" onmouseout="mouseoutdownload()">hier gewoon doen da hij alle files download
  da in map zitten van "datafiles" ofzoiets</p>
-<p id="d1"> download 1</p>
-<p id="d2"> download 2</p>
-	
+<span>
+
+	<a href="http://192.168.0.119/test.txt" download>download hier </a>
+
+	<a id="ad1" href="test.txt" download> <p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d1"> download 1</p> </a>
+<p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d2"> download 2</p>
+<p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d3"> download 3</p>
+<p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d4"> download 4</p>
+<p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d5"> download 5</p>
+</span>
 	
 <div>
 
@@ -236,7 +340,7 @@ function hideSecond() {
 <!--<input type="text" size="5" name="a"> + -->
 <!--<input type="text" size="5" name="b"> = -->
 <span id="result">!</span>
-<!--<p><a href=# id="calculate">calculate server side</a> -->
+<!--<p><a href=# id="calculate">calculate server side</a>-->
 </body>
 
 

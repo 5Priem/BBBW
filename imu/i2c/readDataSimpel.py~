@@ -42,8 +42,8 @@ while True:
                 #time.sleep(0.2)
 
 
-	except:
-		print("Finito1")
+	#except:
+	#	print("Finito1")
 
 	#try:
 	#	ax2, ay2, az2 = mp2.getAccel()

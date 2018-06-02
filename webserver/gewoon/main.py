@@ -16,18 +16,23 @@ except:
 def showValues():
     #global a
     #a = a+1#x#request.args.get('a', 0, type=int)
-
     ax, ay, az = mp1.getAccel()
     gx, gy, gz = mp1.getGyro()
+    return jsonify(result=str(ax)+"!"+str(ay)+"!"+str(az)+"!"+str(gx)+"!"+str(gy)+"!"+str(gz))
+
+
+
+@app.route('/_showFiles')
+def showFiles():
     datafiles = os.listdir("/home/debian/Desktop/bbbw/webserver/gewoon/datafiles")
     allfiles = ""
     for i in range(0,len(datafiles)):
         allfiles=allfiles + ","+datafiles[i]
-    return jsonify(result=str(ax)+"!"+str(ay)+"!"+str(az)+"!"+str(gx)+"!"+str(gy)+"!"+str(gz)+"?"+allfiles)
+    return jsonify(result2=allfiles)
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(host='192.168.0.118')
+    app.run(host='192.168.0.119')

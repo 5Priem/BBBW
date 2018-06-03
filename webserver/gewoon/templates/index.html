@@ -24,6 +24,19 @@ h1.headers{
   font-size:2.8em;
   background-color:black;
 }
+
+a:link{
+	color:white;
+}
+a:visited{
+	color:white;
+}
+a:hover{
+	color:#005666;
+}
+a:active{
+}
+
 </style>
 <!-- kleuren: #005641 en #005666 en #00A885-->
 
@@ -95,7 +108,7 @@ var submit_form2 =
 			//alert(files);
 			var splittedFiles = files.split(",");
 			var numberOfFiles = splittedFiles.length-1;
-			//var filesDir = "/home/debian/Desktop/bbbw/webserver/gewoon/datafiles/";
+			var filesDir =  "http://192.168.0.119/datafiles/";
 			//alert(numberOfFiles.toString());
 			if(numberOfFiles==1)
 			{
@@ -117,11 +130,17 @@ var submit_form2 =
 			{
 				$("#d1").visible();
 				$("#d1").text(splittedFiles[1]);
-				//$("#ad1").attr("href", filesDir+splittedFiles[numberOfFiles]);
+				$("#ad1").attr("href", filesDir+splittedFiles[1]);
+				$("#ad1").css("fontSize","200%");
+				$("#ad1").css("margin-left","1%");
 				$("#d2").visible();
 				$("#d2").text(splittedFiles[2]);
+				$("#ad2").attr("href", filesDir+splittedFiles[2]);
+				$("#ad2").css("fontSize","200%");
 				$("#d3").visible();
 				$("#d3").text(splittedFiles[3]);
+				$("#ad3").attr("href", filesDir+splittedFiles[3]);
+				$("#ad3").css("fontSize","200%");
 				$("#d4").invisible();
 				$("#d5").invisible();
 			}
@@ -184,7 +203,7 @@ $.fn.invisible = function() {
 
 
 
-<body style="font-size:100%;background-color:#00A885;margin:0;">
+<body style="overflow:hidden;font-size:100%;background-color:#00A885;margin:0;">
 
 <h1 class="headers" id="h1" onmouseover="mousehover1()" onmouseout="mouseout1()" >Inertial Measurement Unit values</h1>
 	<!--style="border-bottom-style:solid;border-top-style:solid;border-color:#005641;border-width:3px;margin-bottom:0;margin-top:0;color:white;text-align:center;font-family: Arial, Helvetica, sans-serif;font-size:2.8em;background-color:#111111;"-->
@@ -222,17 +241,13 @@ fe
 <h1 class="headers" id="h2" onmouseover="mousehover2()" onmouseout="mouseout2()" > Files with suit data </h2>
 <!--style="border-bottom-style:solid;border-top-style:solid;border-color:#005641;border-width:3px;margin-top:0;color:white;text-align:center;font-family: Arial, Helvetica, sans-serif;font-size:2.8em;background-color:#111111;"-->
 <div class="halves" id="secondHalf">
-<p style="font-size:3em;text-align:center;" id="downloadp" onmouseover="mousehoverdownload()" onmouseout="mouseoutdownload()">hier gewoon doen da hij alle files download
- da in map zitten van "datafiles" ofzoiets</p>
 <span>
 
-	<a href="http://192.168.0.119/test.txt" download>download hier </a>
-
-	<a id="ad1" href="test.txt" download> <p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d1"> download 1</p> </a>
-<p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d2"> download 2</p>
-<p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d3"> download 3</p>
-<p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d4"> download 4</p>
-<p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d5"> download 5</p>
+	<a id="ad1" href="http://192.168.0.119/test.txt" download> <p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d1"> download 1</p></a>
+	<a id="ad2" href="http://192.168.0.119/test.txt" download><p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d2"> download 2</p></a>
+	<a id="ad3" href="http://192.168.0.119/test.txt" download><p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d3"> download 3</p></a>
+	<a id="ad4" href="http://192.168.0.119/test.txt" download><p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d4"> download 4</p></a>
+	<a id="ad5" href="http://192.168.0.119/test.txt" download><p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d5"> download 5</p></a>
 </span>
 	
 <div>
@@ -242,7 +257,6 @@ var firstHalf = document.getElementById("firstHalf");
 var h1 = document.getElementById("h1");
 var secondHalf = document.getElementById("secondHalf");
 var h2 = document.getElementById("h2");
-var pdownload = document.getElementById("downloadp");
 function mousehover2(){
 	  h2.style.backgroundColor="#005666";
 	  h2.style.cursor="pointer";
@@ -256,13 +270,6 @@ function mousehover1(){
 }
 function mouseout1(){
 	  h1.style.backgroundColor="black";
-}
-function mousehoverdownload(){
-	  pdownload.style.color="white";
-	  pdownload.style.cursor="pointer";
-}
-function mouseoutdownload(){
-	  pdownload.style.color="black";
 }
 
 
@@ -339,7 +346,7 @@ function hideSecond() {
 
 <!--<input type="text" size="5" name="a"> + -->
 <!--<input type="text" size="5" name="b"> = -->
-<span id="result">!</span>
+<!--<span id="result">!</span>-->
 <!--<p><a href=# id="calculate">calculate server side</a>-->
 </body>
 

@@ -20,8 +20,6 @@ def showValues():
     gx, gy, gz = mp1.getGyro()
     return jsonify(result=str(ax)+"!"+str(ay)+"!"+str(az)+"!"+str(gx)+"!"+str(gy)+"!"+str(gz))
 
-@app.route('/test')
-def test():
 
 
 @app.route('/_showFiles')

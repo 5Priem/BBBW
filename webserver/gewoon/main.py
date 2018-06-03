@@ -24,7 +24,7 @@ def showValues():
 
 @app.route('/_showFiles')
 def showFiles():
-    datafiles = os.listdir("/home/debian/Desktop/bbbw/webserver/gewoon/datafiles")
+    datafiles = os.listdir("/var/www/html/datafiles")
     allfiles = ""
     for i in range(0,len(datafiles)):
         allfiles=allfiles + ","+datafiles[i]

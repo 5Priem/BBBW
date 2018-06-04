@@ -1,0 +1,8 @@
+import time
+
+while time.time()<timeout:
+    print("yo")
+    time.sleep(0.3)
+
+print("gedaan")
+

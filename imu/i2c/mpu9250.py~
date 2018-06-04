@@ -1,7 +1,7 @@
 #!/usr/bin/python -u
 # -*- coding: utf-8 -*-
 
-import smbus
+import smbus2
 import time
 
 # A class (python2) that acquires data from I2C from Strawberry Linux's "MPU-9250"
@@ -328,7 +328,7 @@ if __name__ == "__main__":
     sensor  = SL_MPU9250(0x68,1)
     sensor.resetRegister()
     sensor.powerWakeUp()
-    sensor.setAccelRange(8,True)
+    sensor.setAccelRange(16,True)
     sensor.setGyroRange(1000,True)
     sensor.setMagRegister('100Hz','16bit')
     # sensor.selfTestMag()

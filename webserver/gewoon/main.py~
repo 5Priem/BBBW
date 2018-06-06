@@ -11,20 +11,27 @@ try:
 except:
         print("IMU's : Failed to import or execute mpu9250 library, IMU is probably not connected rightly")
 
+from subprocess import check_output
+ips = check_output(['hostname', '--all-ip-addresses'])
+print(ips)
 
 @app.route('/_showValues')
 def showValues():
     #global a
     #a = a+1#x#request.args.get('a', 0, type=int)
-    ax, ay, az = mp1.getAccel()
-    gx, gy, gz = mp1.getGyro()
+    #ax, ay, az = mp1.getAccel()
+    #gx, gy, gz = mp1.getGyro()
+    ax=0.23
+    ay=0.23
+    az=0.23
+    gx=0.23
+    gy=0.23
+    gz=0.23
     return jsonify(result=str(ax)+"!"+str(ay)+"!"+str(az)+"!"+str(gx)+"!"+str(gy)+"!"+str(gz))
-
-
 
 @app.route('/_showFiles')
 def showFiles():
-    datafiles = os.listdir("/home/debian/Desktop/bbbw/webserver/gewoon/datafiles")
+    datafiles = os.listdir("/var/www/html/datafiles")
     allfiles = ""
     for i in range(0,len(datafiles)):
         allfiles=allfiles + ","+datafiles[i]
@@ -35,4 +42,4 @@ def index():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(host='192.168.0.119')
+    app.run(host='192.168.0.124')

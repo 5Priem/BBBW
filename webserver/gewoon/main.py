@@ -11,6 +11,9 @@ try:
 except:
         print("IMU's : Failed to import or execute mpu9250 library, IMU is probably not connected rightly")
 
+from subprocess import check_output
+ips = check_output(['hostname', '--all-ip-addresses'])
+print(ips)
 
 @app.route('/_showValues')
 def showValues():
@@ -19,8 +22,6 @@ def showValues():
     ax, ay, az = mp1.getAccel()
     gx, gy, gz = mp1.getGyro()
     return jsonify(result=str(ax)+"!"+str(ay)+"!"+str(az)+"!"+str(gx)+"!"+str(gy)+"!"+str(gz))
-
-
 
 @app.route('/_showFiles')
 def showFiles():
@@ -35,4 +36,4 @@ def index():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(host='192.168.0.119')
+    app.run(host='192.168.0.124')

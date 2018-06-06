@@ -96,7 +96,6 @@ var submit_form2 =
 		//b: $('input[name="b"]').val()
 		//},
 		function(allFiles) {
-			var files = allFiles.result2;
 			//var splittedFiles = data.result.split("?");
 			//var splittedFiles2 = splittedFiles[1].split(",");
 			//file1 = splittedFiles2[1];
@@ -106,13 +105,21 @@ var submit_form2 =
 
 			//console.log(splittedFiles[1]);
 			//alert(files);
+
+
+
+			var files = allFiles.result2;
 			var splittedFiles = files.split(",");
 			var numberOfFiles = splittedFiles.length-1;
-			var filesDir =  "http://192.168.0.119/datafiles/";
+			var filesDir =  "http://192.168.0.124/datafiles/";
 			//alert(numberOfFiles.toString());
 			if(numberOfFiles==1)
 			{
 				$("#d1").visible();
+				$("#d1").text(splittedFiles[1]);
+				$("#ad1").attr("href", filesDir+splittedFiles[1]);
+				$("#ad1").css("fontSize","200%");
+				$("#ad1").css("margin-left","30%");
 				$("#d2").invisible();
 				$("#d3").invisible();
 				$("#d4").invisible();
@@ -121,7 +128,15 @@ var submit_form2 =
 			else if(numberOfFiles==2)
 			{
 				$("#d1").visible();
+				$("#d1").text(splittedFiles[1]);
+				$("#ad1").attr("href", filesDir+splittedFiles[1]);
+				$("#ad1").css("fontSize","200%");
+				$("#ad1").css("margin-left","10%");
 				$("#d2").visible();
+				$("#d2").text(splittedFiles[2]);
+				$("#ad2").attr("href", filesDir+splittedFiles[2]);
+				$("#ad2").css("fontSize","200%");
+				$("#ad1").css("margin-left","15%");
 				$("#d3").invisible();
 				$("#d4").invisible();
 				$("#d5").invisible();
@@ -147,18 +162,44 @@ var submit_form2 =
 			else if(numberOfFiles==4)
 			{
 				$("#d1").visible();
+				$("#d1").text(splittedFiles[1]);
+				$("#ad1").attr("href", filesDir+splittedFiles[1]);
+				$("#ad1").css("fontSize","120%");
+				//$("#ad1").css("margin-left","1%");
 				$("#d2").visible();
+				$("#d2").text(splittedFiles[2]);
+				$("#ad2").attr("href", filesDir+splittedFiles[2]);
+				$("#ad2").css("fontSize","120%");
+				//$("#ad2").css("margin-left","10%");
 				$("#d3").visible();
+				$("#d3").text(splittedFiles[3]);
+				$("#ad3").attr("href", filesDir+splittedFiles[3]);
+				$("#ad3").css("fontSize","120%");
+				//$("#ad3").css("margin-left","10%");
 				$("#d4").visible();
+				$("#d4").text(splittedFiles[4]);
+				$("#ad4").attr("href", filesDir+splittedFiles[4]);
+				$("#ad4").css("fontSize","120%");
+				//$("#ad4").css("margin-left","10%");
 				$("#d5").invisible();
 			}
 			else if(numberOfFiles==5)
 			{
 				$("#d1").visible();
+				$("#d1").text(splittedFiles[1]);
+				$("#ad1").attr("href", filesDir+splittedFiles[1]);
 				$("#d2").visible();
+				$("#d2").text(splittedFiles[2]);
+				$("#ad2").attr("href", filesDir+splittedFiles[2]);
 				$("#d3").visible();
+				$("#d3").text(splittedFiles[3]);
+				$("#ad3").attr("href", filesDir+splittedFiles[3]);
 				$("#d4").visible();
+				$("#d4").text(splittedFiles[4]);
+				$("#ad4").attr("href", filesDir+splittedFiles[4]);
 				$("#d5").visible();
+				$("#d5").text(splittedFiles[5]);
+				$("#ad5").attr("href", filesDir+splittedFiles[5]);
 			}
 			else if(numberOfFiles>6)
 			{
@@ -212,7 +253,7 @@ $.fn.invisible = function() {
 
 
 	<span style="margin-left:20%;position: relative;">
-		<p style="font-size:1.8em;color:white;font-familu: Arial, Helvetica, sans-serif;display:inline;">Accelerometer</p>
+		<p style="font-size:2.2em;color:white;font-familu: Arial, Helvetica, sans-serif;display:inline;">Accelerometer</p>
 		<span style="position: absolute; top: 100%; left: 0px;">
 			<p id="ax" style="display:inline">Acceleration x: g</p></br>
 			<p id="ay" style="display:inline">Acceleration y: g</p></br>
@@ -221,7 +262,7 @@ $.fn.invisible = function() {
 	</span>
 	
 	<span style="margin-left:20%;position: relative;">
-		<p style="font-size:1.8em;color:white;font-familu: Arial, Helvetica, sans-serif;display:inline;">Gyroscope</p>
+		<p style="font-size:2.2em;color:white;font-familu: Arial, Helvetica, sans-serif;display:inline;">Gyroscope</p>
 		<span style="display:block;width:15em;position: absolute; top: 100%; left: 0px;">
 			<p id="gx" style="display:inline">Rotation x: deg/s</p></br>
 			<p id="gy" style="display:inline">Rotation y: deg/s</p></br>
@@ -243,11 +284,11 @@ fe
 <div class="halves" id="secondHalf">
 <span>
 
-	<a id="ad1" href="http://192.168.0.119/test.txt" download> <p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d1"> download 1</p></a>
-	<a id="ad2" href="http://192.168.0.119/test.txt" download><p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d2"> download 2</p></a>
-	<a id="ad3" href="http://192.168.0.119/test.txt" download><p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d3"> download 3</p></a>
-	<a id="ad4" href="http://192.168.0.119/test.txt" download><p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d4"> download 4</p></a>
-	<a id="ad5" href="http://192.168.0.119/test.txt" download><p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d5"> download 5</p></a>
+	<a id="ad1" href="http://192.168.0.124/test.txt" download > <p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d1"> download 1</p></a>
+	<a id="ad2" href="http://192.168.0.124/test.txt" download><p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d2"> download 2</p></a>
+	<a id="ad3" href="http://192.168.0.124/test.txt" download><p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d3"> download 3</p></a>
+	<a id="ad4" href="http://192.168.0.124/test.txt" download><p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d4"> download 4 </p></a>
+	<a id="ad5" href="http://192.168.0.124/test.txt" download><p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d5"> download 5</p></a>
 </span>
 	
 <div>

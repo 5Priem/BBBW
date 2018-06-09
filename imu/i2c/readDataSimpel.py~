@@ -32,6 +32,7 @@ try:
 	#mp2 = mpu9250.SL_MPU9250(0x69,2)
 except:
 	print("IMU's : Failed to import or execute mpu9250 library, IMU is probably not connected rightly")
+        mp1 = mpu9250.SL_MPU9250(0x69,2)
 
 filename = "sampleData"
 data = open(filename+ '.txt', 'a+')
@@ -42,9 +43,12 @@ while True:
 	try:
 		ax1, ay1, az1 = mp1.getAccel()
 		gx1, gy1, gz1 = mp1.getGyro()
-                print("ax: "+str(ax1))
-                print("ay: "+str(ay1))
-                print("az: "+str(az1))
+                #print("ax: "+str(ax1))
+                #print("ay: "+str(ay1))
+                #print("az: "+str(az1))
+                print("gx: "+str(gx1))
+                print("gy: "+str(gy1))
+                print("gz: "+str(gz1))
                 time.sleep(0.3)
 
 

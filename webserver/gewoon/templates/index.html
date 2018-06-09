@@ -109,9 +109,13 @@ var submit_form2 =
 
 
 			var files = allFiles.result2;
-			var splittedFiles = files.split(",");
+			var ipadresSplit = files.split("!");
+			var ipadres = ipadresSplit[1];
+			var splittedFiles = ipadresSplit[0].split(",");
 			var numberOfFiles = splittedFiles.length-1;
-			var filesDir =  "http://192.168.0.124/datafiles/";
+			var filesDir = "http://"+ipadres+ "/datafiles/";
+			//"http://192.168.0.124/datafiles/";
+			
 			//alert(numberOfFiles.toString());
 			if(numberOfFiles==1)
 			{
@@ -124,6 +128,9 @@ var submit_form2 =
 				$("#d3").invisible();
 				$("#d4").invisible();
 				$("#d5").invisible();
+				$("#d6").invisible();
+				$("#d7").invisible();
+				$("#d8").invisible();
 			}
 			else if(numberOfFiles==2)
 			{
@@ -140,6 +147,9 @@ var submit_form2 =
 				$("#d3").invisible();
 				$("#d4").invisible();
 				$("#d5").invisible();
+				$("#d6").invisible();
+				$("#d7").invisible();
+				$("#d8").invisible();
 			}
 			else if(numberOfFiles==3)
 			{
@@ -158,6 +168,9 @@ var submit_form2 =
 				$("#ad3").css("fontSize","200%");
 				$("#d4").invisible();
 				$("#d5").invisible();
+				$("#d6").invisible();
+				$("#d7").invisible();
+				$("#d8").invisible();
 			}
 			else if(numberOfFiles==4)
 			{
@@ -182,6 +195,9 @@ var submit_form2 =
 				$("#ad4").css("fontSize","120%");
 				//$("#ad4").css("margin-left","10%");
 				$("#d5").invisible();
+				$("#d6").invisible();
+				$("#d7").invisible();
+				$("#d8").invisible();
 			}
 			else if(numberOfFiles==5)
 			{
@@ -200,14 +216,96 @@ var submit_form2 =
 				$("#d5").visible();
 				$("#d5").text(splittedFiles[5]);
 				$("#ad5").attr("href", filesDir+splittedFiles[5]);
+				$("#d6").invisible();
+				$("#d7").invisible();
+				$("#d8").invisible();
 			}
-			else if(numberOfFiles>6)
+			else if(numberOfFiles==6)
 			{
 				$("#d1").visible();
+				$("#d1").text(splittedFiles[1]);
+				$("#ad1").attr("href", filesDir+splittedFiles[1]);
 				$("#d2").visible();
+				$("#d2").text(splittedFiles[2]);
+				$("#ad2").attr("href", filesDir+splittedFiles[2]);
 				$("#d3").visible();
+				$("#d3").text(splittedFiles[3]);
+				$("#ad3").attr("href", filesDir+splittedFiles[3]);
 				$("#d4").visible();
+				$("#d4").text(splittedFiles[4]);
+				$("#ad4").attr("href", filesDir+splittedFiles[4]);
 				$("#d5").visible();
+				$("#d5").text(splittedFiles[5]);
+				$("#ad5").attr("href", filesDir+splittedFiles[5]);
+				$("#d6").visible();
+				$("#d6").text(splittedFiles[6]);
+				$("#ad6").attr("href", filesDir+splittedFiles[6]);
+				$("#d7").invisible();
+				$("#d8").invisible();
+			}
+			else if(numberOfFiles==7)
+			{
+				$("#d1").visible();
+				$("#d1").text(splittedFiles[1]);
+				$("#ad1").attr("href", filesDir+splittedFiles[1]);
+				$("#d2").visible();
+				$("#d2").text(splittedFiles[2]);
+				$("#ad2").attr("href", filesDir+splittedFiles[2]);
+				$("#d3").visible();
+				$("#d3").text(splittedFiles[3]);
+				$("#ad3").attr("href", filesDir+splittedFiles[3]);
+				$("#d4").visible();
+				$("#d4").text(splittedFiles[4]);
+				$("#ad4").attr("href", filesDir+splittedFiles[4]);
+				$("#d5").visible();
+				$("#d5").text(splittedFiles[5]);
+				$("#ad5").attr("href", filesDir+splittedFiles[5]);
+				$("#d6").visible();
+				$("#d6").text(splittedFiles[6]);
+				$("#ad6").attr("href", filesDir+splittedFiles[6]);
+				$("#d7").visible();
+				$("#d7").text(splittedFiles[7]);
+				$("#ad7").attr("href", filesDir+splittedFiles[7]);
+				$("#d8").invisible();
+			}
+			else if(numberOfFiles>=8)
+			{
+				$("#d1").visible();
+				$("#d1").text(splittedFiles[1]);
+				$("#ad1").attr("href", filesDir+splittedFiles[1]);
+				$("#d2").visible();
+				$("#d2").text(splittedFiles[2]);
+				$("#ad2").attr("href", filesDir+splittedFiles[2]);
+				$("#d3").visible();
+				$("#d3").text(splittedFiles[3]);
+				$("#ad3").attr("href", filesDir+splittedFiles[3]);
+				$("#d4").visible();
+				$("#d4").text(splittedFiles[4]);
+				$("#ad4").attr("href", filesDir+splittedFiles[4]);
+				$("#d5").visible();
+				$("#d5").text(splittedFiles[5]);
+				$("#ad5").attr("href", filesDir+splittedFiles[5]);
+				$("#d6").visible();
+				$("#d6").text(splittedFiles[6]);
+				$("#ad6").attr("href", filesDir+splittedFiles[6]);
+				$("#d7").visible();
+				$("#d7").text(splittedFiles[7]);
+				$("#ad7").attr("href", filesDir+splittedFiles[7]);
+				$("#d8").visible();
+				$("#d8").text(splittedFiles[8]);
+				$("#ad8").attr("href", filesDir+splittedFiles[8]);
+			}
+
+			else if(numberOfFiles==0)
+			{
+				$("#d1").invisible();
+				$("#d2").invisible();
+				$("#d3").invisible();
+				$("#d4").invisible();
+				$("#d5").invisible();
+				$("#d6").invisible();
+				$("#d7").invisible();
+				$("#d8").invisible();
 			}
 			else
 			{
@@ -216,6 +314,9 @@ var submit_form2 =
 				$("#d3").invisible();
 				$("#d4").invisible();
 				$("#d5").invisible();
+				$("#d6").invisible();
+				$("#d7").invisible();
+				$("#d8").invisible();
 			}
 
 		});
@@ -284,11 +385,14 @@ fe
 <div class="halves" id="secondHalf">
 <span>
 
-	<a id="ad1" href="http://192.168.0.124/test.txt" download > <p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d1"> download 1</p></a>
-	<a id="ad2" href="http://192.168.0.124/test.txt" download><p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d2"> download 2</p></a>
-	<a id="ad3" href="http://192.168.0.124/test.txt" download><p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d3"> download 3</p></a>
-	<a id="ad4" href="http://192.168.0.124/test.txt" download><p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d4"> download 4 </p></a>
-	<a id="ad5" href="http://192.168.0.124/test.txt" download><p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d5"> download 5</p></a>
+	<a id="ad1" href="" download > <p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d1"> download 1</p></a>
+	<a id="ad2" href="" download><p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d2"> download 2</p></a>
+	<a id="ad3" href="" download><p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d3"> download 3</p></a>
+	<a id="ad4" href="" download><p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d4"> download 4 </p></a>
+	<a id="ad5" href="" download><p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d5"> download 5</p></a>
+	<a id="ad6" href="" download><p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d6"> download 6</p></a>
+	<a id="ad7" href="" download><p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d7"> download 7</p></a>
+	<a id="ad8" href="" download><p style="visibility:hidden;display:inline-block;margin-left:10%;font-size:200%;" id="d8"> download 8</p></a>
 </span>
 	
 <div>

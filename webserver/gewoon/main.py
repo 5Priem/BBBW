@@ -3,17 +3,19 @@
 from flask import Flask, jsonify, render_template, request
 import mpu9250
 import os
+from subprocess import check_output
+
 app = Flask(__name__)
 
 a = 4
 try:
-        mp1 = mpu9250.SL_MPU9250(0x68,2)
+        mp1 = mpu9250.SL_MPU9250(0x69,2)
 except:
         print("IMU's : Failed to import or execute mpu9250 library, IMU is probably not connected rightly")
 
-from subprocess import check_output
 ips = check_output(['hostname', '--all-ip-addresses'])
-print(ips)
+ipadresSplit = ips.split(" ")
+ipadres=ipadresSplit[1]
 
 @app.route('/_showValues')
 def showValues():
@@ -29,11 +31,11 @@ def showFiles():
     allfiles = ""
     for i in range(0,len(datafiles)):
         allfiles=allfiles + ","+datafiles[i]
-    return jsonify(result2=allfiles)
+    return jsonify(result2=allfiles+"!"+ipadres)
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(host='192.168.0.124')
+    app.run(host=ipadres)#'192.168.0.124')

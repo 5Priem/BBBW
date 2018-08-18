@@ -22,10 +22,10 @@ GPIO.output("P8_9",GPIO.HIGH)
 
 try:
 	mp1 = mpu9250.SL_MPU9250(0x68,2)
-	mp2 = mpu9250.SL_MPU9250(0x69,2)
+	#mp2 = mpu9250.SL_MPU9250(0x69,2)
 except:
 	print("IMU's : Failed to import or execute mpu9250 library, IMU is probably not connected rightly")
-fileName = "sampleData"
+fileName = "sampleData400try4"
 sampleFreq = 100
 sampleTime = 10
 

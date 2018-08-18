@@ -25,7 +25,7 @@ try:
 	#mp2 = mpu9250.SL_MPU9250(0x69,2)
 except:
 	print("IMU's : Failed to import or execute mpu9250 library, IMU is probably not connected rightly")
-fileName = "sampleData400try9"
+fileName = "sampleData400try10"
 sampleFreq = 100
 sampleTime = 10
 
@@ -41,8 +41,8 @@ while True:
 		#ay1 = "1"
 		#az1 = "1"
 
-		#ax1, ay1, az1 = mp1.getAccel()
-		gx1, gy1, gz1 = mp1.getGyro()
+		ax1, ay1, az1 = mp1.getAccel()
+		#gx1, gy1, gz1 = mp1.getGyro()
 		#print "Eerste IMU values:"
 		#print "Ax1: ",ax1
 		#print "Ay1: ",ay1
@@ -52,7 +52,7 @@ while True:
 		#print "Gy1: ",gy1
 		#print "Gz1: ",gz1
 		#data.write(str(time.time())+str(ax1)+','+str(ay1)+','+str(az1)+','+str(gx1)+','+str(gy1)+','+str(gz1)+'\n')
-		data.write(str(time.time())+str(gx1)+','+str(gy1)+','+str(gz1)+'\n')
+		data.write(str(time.time())+str(ax1)+'\n')
 		#time.sleep(float(1)/sampleFreq)
 
 		if time.time()>timeout:

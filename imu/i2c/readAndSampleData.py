@@ -25,7 +25,7 @@ try:
 	#mp2 = mpu9250.SL_MPU9250(0x69,2)
 except:
 	print("IMU's : Failed to import or execute mpu9250 library, IMU is probably not connected rightly")
-fileName = "sampleData100try2"
+fileName = "sampleData400try5"
 sampleFreq = 100
 sampleTime = 10
 

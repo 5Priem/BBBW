@@ -56,6 +56,17 @@ class SL_MPU9250:
         self.magCoefficient16   = self.magRange   / 32760.0         # confficient : sensed decimal val to μT val (16bit)
         self.magCoefficient14   = self.magRange   / 8190.0          # confficient : sensed decimal val to μT val (14bit)
 
+
+        #self.bus.write_i2c_block_data(self.address, 0x1C, [0x08])
+        self.bus.write_i2c_block_data(self.address, 0x1D, [0x08])
+        #self.bus.write_i2c_block_data(self.address, 0x6C, [0x07])
+
+	#gyro
+        #self.bus.write_i2c_block_data(self.address, 0x1B, [0x03])
+
+	#config
+        self.bus.write_i2c_block_data(self.address, 0x1A, [0x03])
+
     # Function to initialize registers.
     def resetRegister(self):
         if self.MAG_ACCESS == True:
@@ -130,6 +141,9 @@ class SL_MPU9250:
 
         self.bus.write_i2c_block_data(self.address, self.REG_ACCEL_CONFIG1, [_data])
         self.accelCoefficient   = self.accelRange / float(0x8000)
+
+	#van mij 2 lijn hieronder
+        self.bus.write_i2c_block_data(self.address, 0x1A, [0x03])
         time.sleep(0.1)
 
         # Reset offset value (so that the past offset value is not inherited)
@@ -159,6 +173,7 @@ class SL_MPU9250:
             _data               = 0x00
 
         self.bus.write_i2c_block_data(self.address, self.REG_GYRO_CONFIG, [_data])
+
         self.gyroCoefficient    = self.gyroRange / float(0x8000)
         time.sleep(0.1)
 

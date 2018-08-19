@@ -56,6 +56,11 @@ class SL_MPU9250:
         self.magCoefficient16   = self.magRange   / 32760.0         # confficient : sensed decimal val to μT val (16bit)
         self.magCoefficient14   = self.magRange   / 8190.0          # confficient : sensed decimal val to μT val (14bit)
 
+
+        #self.bus.write_i2c_block_data(self.address, 0x1C, [0x08])
+        #self.bus.write_i2c_block_data(self.address, 0x1D, [0x08])
+        self.bus.write_i2c_block_data(self.address, 0x6C, [0x07])
+
     # Function to initialize registers.
     def resetRegister(self):
         if self.MAG_ACCESS == True:
@@ -328,7 +333,7 @@ if __name__ == "__main__":
     sensor  = SL_MPU9250(0x68,1)
     sensor.resetRegister()
     sensor.powerWakeUp()
-    sensor.setAccelRange(16,True)
+    sensor.setAccelRange(8,True)
     sensor.setGyroRange(1000,True)
     sensor.setMagRegister('100Hz','16bit')
     # sensor.selfTestMag()

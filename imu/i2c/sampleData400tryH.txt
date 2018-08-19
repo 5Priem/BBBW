@@ -1,0 +1,5 @@
+6 bytes: counter: 10550
+4 bytes: counter: 11791
+2 bytes: counter: 13831
+1 bytes: ccounter: 15713
+1 bytes geen instelling register 29 en 108: counter: 14662

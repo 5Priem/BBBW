@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 a = 4
 try:
-        mp1 = mpu9250.SL_MPU9250(0x69,2)
+        mp1 = mpu9250.SL_MPU9250(0x68,2)
 except:
         print("IMU's : Failed to import or execute mpu9250 library, IMU is probably not connected rightly")
 
@@ -21,8 +21,15 @@ ipadres=ipadresSplit[1]
 def showValues():
     #global a
     #a = a+1#x#request.args.get('a', 0, type=int)
-    ax, ay, az = mp1.getAccel()
-    gx, gy, gz = mp1.getGyro()
+    #ax, ay, az = mp1.getAccel()
+    #gx, gy, gz = mp1.getGyro()
+    ax = '1'
+    ay = '1'
+    az = '1'
+    gx = '1'
+    gy = '1'
+    gz = '1'
+
     return jsonify(result=str(ax)+"!"+str(ay)+"!"+str(az)+"!"+str(gx)+"!"+str(gy)+"!"+str(gz))
 
 @app.route('/_showFiles')

@@ -1,5 +1,29 @@
+import Adafruit_BBIO.GPIO as GPIO
+import mpu9250
 import time
 import os
+
+
+pinfootLeft         = "P8_7"
+pinfootRight        = "P8_8"
+pintibiaLeft        = "P8_9"
+pintibiaRight       = "P8_10"
+pinthighLeft   	 = "P8_11"
+pinthighRight 	   	 = "P8_12"
+pinhandLeft         = "P8_14"
+pinhandRight        = "P8_15"
+pinforearmLeft      = "P8_16"
+pinforearmRight     = "P8_17"
+pinbicepsLeft       = "P8_18"
+pinbicepsRight      = "P8_26"
+
+pinbackLeft         = "P9_12"
+pinbackRight        = "P9_15"
+pinbackPelvis       = "P9_23"
+pinfrontSternum     = "P9_25"
+pinfrontBellybutton = "P9_27"
+pinfrontPelvis      = "P9_30"
+pinhead             = "P9_41"
 
 filer1  = open('lg/1.txt', 'r') 
 filer2  = open('lg/2.txt', 'r') 
@@ -257,14 +281,51 @@ def writeToFile():
 	filew.write("Right foot,"+rightfoot)
 
 
-filename = "difficultoutput19.txt"
+#*****LED blinking to show you can start walking after leds stopped blinking*****#
+os.system("cd /sys/class/leds/beaglebone:green:usr0 && echo 255 > brightness")
+os.system("cd /sys/class/leds/beaglebone:green:usr1 && echo 255 > brightness")
+os.system("cd /sys/class/leds/beaglebone:green:usr2 && echo 255 > brightness")
+os.system("cd /sys/class/leds/beaglebone:green:usr3 && echo 255 > brightness")
+time.sleep(1)
+os.system("cd /sys/class/leds/beaglebone:green:usr0 && echo 0 > brightness")
+os.system("cd /sys/class/leds/beaglebone:green:usr1 && echo 0 > brightness")
+os.system("cd /sys/class/leds/beaglebone:green:usr2 && echo 0 > brightness")
+os.system("cd /sys/class/leds/beaglebone:green:usr3 && echo 0 > brightness")
+time.sleep(0.2)
+os.system("cd /sys/class/leds/beaglebone:green:usr0 && echo 255 > brightness")
+os.system("cd /sys/class/leds/beaglebone:green:usr1 && echo 255 > brightness")
+os.system("cd /sys/class/leds/beaglebone:green:usr2 && echo 255 > brightness")
+os.system("cd /sys/class/leds/beaglebone:green:usr3 && echo 255 > brightness")
+time.sleep(1)
+os.system("cd /sys/class/leds/beaglebone:green:usr0 && echo 0 > brightness")
+os.system("cd /sys/class/leds/beaglebone:green:usr1 && echo 0 > brightness")
+os.system("cd /sys/class/leds/beaglebone:green:usr2 && echo 0 > brightness")
+os.system("cd /sys/class/leds/beaglebone:green:usr3 && echo 0 > brightness")
+time.sleep(0.2)
+os.system("cd /sys/class/leds/beaglebone:green:usr0 && echo 255 > brightness")
+os.system("cd /sys/class/leds/beaglebone:green:usr1 && echo 255 > brightness")
+os.system("cd /sys/class/leds/beaglebone:green:usr2 && echo 255 > brightness")
+os.system("cd /sys/class/leds/beaglebone:green:usr3 && echo 255 > brightness")
+time.sleep(1)
+os.system("cd /sys/class/leds/beaglebone:green:usr0 && echo 0 > brightness")
+os.system("cd /sys/class/leds/beaglebone:green:usr1 && echo 0 > brightness")
+os.system("cd /sys/class/leds/beaglebone:green:usr2 && echo 0 > brightness")
+os.system("cd /sys/class/leds/beaglebone:green:usr3 && echo 0 > brightness")
+time.sleep(0.2)
+os.system("cd /sys/class/leds/beaglebone:green:usr0 && echo 255 > brightness")
+os.system("cd /sys/class/leds/beaglebone:green:usr1 && echo 255 > brightness")
+os.system("cd /sys/class/leds/beaglebone:green:usr2 && echo 255 > brightness")
+os.system("cd /sys/class/leds/beaglebone:green:usr3 && echo 255 > brightness")
+
+
+filename = "output2.txt"
 filew = open(filename,'w')
 filew.write("Sensor,Timestamp,Acceleration x,Acceleration y,Acceleration z,Gyroscope x,Gyroscope y,Gyroscope z" + '\n')
 
 #leds blinking
 
 
-sampletime = 5
+sampletime = 9
 starttime = time.time()
 timeout = starttime+sampletime
 numberofIMUs = 19
@@ -276,7 +337,7 @@ while True:
 		temp = leftfoot.split(',')
 		tijd=temp[0]
 	if float(tijd)<sampletime:
-		for i in range(numberofIMUs-1):
+		for i in range(numberofIMUs):
 			leftfoot = filer1.readline()
 			rightfoot = filer2.readline()
 			lefttibia = filer3.readline()
@@ -321,7 +382,9 @@ os.system("cp "+ filename+ " /var/www/html/datafiles")
 
 
 
-
-
-
+#*****LEDs turn off to show you can stop walking*****#
+os.system("cd /sys/class/leds/beaglebone:green:usr0 && echo 0 > brightness")
+os.system("cd /sys/class/leds/beaglebone:green:usr1 && echo 0 > brightness")
+os.system("cd /sys/class/leds/beaglebone:green:usr2 && echo 0 > brightness")
+os.system("cd /sys/class/leds/beaglebone:green:usr3 && echo 0 > brightness")
 

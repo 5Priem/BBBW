@@ -5,7 +5,7 @@ import os
 filer  = open('sto.csv', 'r') 
 filer.readline()
 
-filename = "output2.txt"
+filename = "output.txt"
 filew = open (filename,'w')
 filew.write("Sensor,Timestamp,Acceleration x,Acceleration y,Acceleration z,Gyroscope x,Gyroscope y,Gyroscope z" + '\n')
 

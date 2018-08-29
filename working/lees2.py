@@ -64,7 +64,7 @@ while True:
 
 		break
 
-
+os.system("cp "+ filename+ " /var/www/html/datafiles")
 
 
 

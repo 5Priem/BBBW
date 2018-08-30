@@ -325,7 +325,7 @@ filew.write("Sensor,Timestamp,Acceleration x,Acceleration y,Acceleration z,Gyros
 #leds blinking
 
 
-sampletime = 30
+sampletime = 9
 starttime = time.time()
 timeout = starttime+sampletime
 numberofIMUs = 19

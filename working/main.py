@@ -3,7 +3,6 @@ import mpu9250
 import time
 import os
 
-
 pinfootLeft         = "P8_7"
 pinfootRight        = "P8_8"
 pintibiaLeft        = "P8_9"
@@ -25,25 +24,26 @@ pinfrontBellybutton = "P9_27"
 pinfrontPelvis      = "P9_30"
 pinhead             = "P9_41"
 
-filer1  = open('lg/1.txt', 'r') 
-filer2  = open('lg/2.txt', 'r') 
-filer3  = open('lg/3.txt', 'r') 
-filer4  = open('lg/4.txt', 'r') 
-filer5  = open('lg/5.txt', 'r') 
-filer6  = open('lg/6.txt', 'r') 
-filer7  = open('lg/7.txt', 'r') 
-filer8  = open('lg/8.txt', 'r') 
-filer9  = open('lg/9.txt', 'r') 
-filer10  = open('lg/10.txt', 'r') 
-filer11  = open('lg/11.txt', 'r') 
-filer12  = open('lg/12.txt', 'r') 
-filer13  = open('lg/13.txt', 'r') 
-filer14  = open('lg/14.txt', 'r') 
-filer15  = open('lg/15.txt', 'r') 
-filer16  = open('lg/16.txt', 'r') 
-filer17  = open('lg/17.txt', 'r') 
-filer18  = open('lg/18.txt', 'r') 
-filer19  = open('lg/19.txt', 'r') 
+
+filer1  = open('st/1.txt', 'r') 
+filer2  = open('st/2.txt', 'r') 
+filer3  = open('st/3.txt', 'r') 
+filer4  = open('st/4.txt', 'r') 
+filer5  = open('st/5.txt', 'r') 
+filer6  = open('st/6.txt', 'r') 
+filer7  = open('st/7.txt', 'r') 
+filer8  = open('st/8.txt', 'r') 
+filer9  = open('st/9.txt', 'r') 
+filer10  = open('st/10.txt', 'r') 
+filer11  = open('st/11.txt', 'r') 
+filer12  = open('st/12.txt', 'r') 
+filer13  = open('st/13.txt', 'r') 
+filer14  = open('st/14.txt', 'r') 
+filer15  = open('st/15.txt', 'r') 
+filer16  = open('st/16.txt', 'r') 
+filer17  = open('st/17.txt', 'r') 
+filer18  = open('st/18.txt', 'r') 
+filer19  = open('st/19.txt', 'r') 
 
 
 lefthand = filer17.readline()
@@ -260,25 +260,25 @@ rightfoot = filer2.readline()
 
 
 def writeToFile():
-	filew.write("Left hand,"+lefthand)
-	filew.write("Left forearm,"+leftforearm)
-	filew.write("Left biceps,"+leftbiceps)
-	filew.write("Right hand,"+righthand)
-	filew.write("Right forearm,"+rightforearm)
-	filew.write("Right biceps,"+rightbiceps)
-	filew.write("Left shoulder,"+leftshoulder)
-	filew.write("Right shoulder,"+rightshoulder)
-	filew.write("Back pelvis,"+pelvisback)
-	filew.write("Front pelvis,"+pelvisfront)
-	filew.write("Belly button,"+bellybutton)
-	filew.write("Sternum,"+sternum)
-	filew.write("Head,"+head)
-	filew.write("Left thigh,"+leftthigh)
-	filew.write("Left tibia,"+lefttibia)
-	filew.write("Left foot,"+leftfoot)
-	filew.write("Right thigh,"+rightthigh)
-	filew.write("Right tibia,"+righttibia)
-	filew.write("Right foot,"+rightfoot)
+	filew.write("Left hand;"+lefthand)
+	filew.write("Left forearm;"+leftforearm)
+	filew.write("Left biceps;"+leftbiceps)
+	filew.write("Right hand;"+righthand)
+	filew.write("Right forearm;"+rightforearm)
+	filew.write("Right biceps;"+rightbiceps)
+	filew.write("Left shoulder;"+leftshoulder)
+	filew.write("Right shoulder;"+rightshoulder)
+	filew.write("Back pelvis;"+pelvisback)
+	filew.write("Front pelvis;"+pelvisfront)
+	filew.write("Belly button;"+bellybutton)
+	filew.write("Sternum;"+sternum)
+	filew.write("Head;"+head)
+	filew.write("Left thigh;"+leftthigh)
+	filew.write("Left tibia;"+lefttibia)
+	filew.write("Left foot;"+leftfoot)
+	filew.write("Right thigh;"+rightthigh)
+	filew.write("Right tibia;"+righttibia)
+	filew.write("Right foot;"+rightfoot)
 
 
 #*****LED blinking to show you can start walking after leds stopped blinking*****#
@@ -318,7 +318,7 @@ os.system("cd /sys/class/leds/beaglebone:green:usr2 && echo 255 > brightness")
 os.system("cd /sys/class/leds/beaglebone:green:usr3 && echo 255 > brightness")
 
 
-filename = "output2.txt"
+filename = "output.txt"
 filew = open(filename,'w')
 filew.write("Sensor,Timestamp,Acceleration x,Acceleration y,Acceleration z,Gyroscope x,Gyroscope y,Gyroscope z" + '\n')
 
